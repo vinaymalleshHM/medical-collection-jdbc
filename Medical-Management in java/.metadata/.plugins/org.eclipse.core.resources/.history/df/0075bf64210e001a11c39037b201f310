@@ -1,0 +1,11 @@
+package com.testyantra.datastore;
+
+import java.util.HashMap;
+
+public class UserDB {
+	
+	public static HashMap<Integer, Object>  usrDB = new HashMap<Integer, Object>();
+	
+	sout
+	
+}

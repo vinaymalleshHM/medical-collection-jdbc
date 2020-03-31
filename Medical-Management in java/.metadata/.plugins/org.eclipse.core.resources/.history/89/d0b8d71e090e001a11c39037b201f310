@@ -1,0 +1,11 @@
+package com.testyantra.infobean;
+
+public class UserCreation {
+	String name;
+	int age;
+	String email;
+	String password;
+	Long mobileNo;
+	
+
+}

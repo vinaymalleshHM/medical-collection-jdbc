@@ -1,0 +1,17 @@
+package com.testyantra.dao;
+
+import java.util.HashMap;
+
+import com.testyantra.infobean.MedicalCreation;
+import com.testyantra.infobean.UserCreation;
+
+public interface MedicalMangementDAO {
+
+	boolean createUser(UserCreation userCreation);
+	boolean deleteUser(int id);
+	boolean createMedicalStore(MedicalCreation medicalCreation,HashMap< Integer, String> h);
+	boolean deleteMedicalStore(int id);
+	boolean  modifyMedicine(int id, int ch);
+	boolean userValidation(int id,String uPassword);
+	boolean addtoCart(int id , MedicalCreation medicalCreation);
+}

@@ -1,0 +1,14 @@
+package com.testyantra.datastore;
+
+import java.util.HashMap;
+
+public class UserDB {
+	
+	public static HashMap<Integer, Object>  usrDB = new HashMap<Integer, Object>();
+	
+	public static void main(String[] args) {
+		 System.out.println("vghgh"+UserDB.usrDB.get(1));
+	}
+	
+	
+}

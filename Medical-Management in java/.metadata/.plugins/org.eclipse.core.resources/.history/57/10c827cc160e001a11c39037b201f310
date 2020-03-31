@@ -1,0 +1,10 @@
+package com.testyantra.infobean;
+
+import java.util.HashMap;
+
+public class MedicalCreation {
+	String sName;
+	
+
+
+}

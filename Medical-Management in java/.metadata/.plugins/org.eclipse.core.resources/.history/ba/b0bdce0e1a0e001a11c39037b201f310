@@ -1,0 +1,6 @@
+package com.testyantra.dao;
+
+public interface MedicalMangementDAO {
+
+	boolean createUser();
+}

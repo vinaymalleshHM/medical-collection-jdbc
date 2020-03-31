@@ -1,0 +1,8 @@
+package com.testyantra.infobean;
+
+public class CartInfoBean {
+	int c_id;
+	String ctab_name;
+	int ctab_qty;
+	double ctab_price;
+}

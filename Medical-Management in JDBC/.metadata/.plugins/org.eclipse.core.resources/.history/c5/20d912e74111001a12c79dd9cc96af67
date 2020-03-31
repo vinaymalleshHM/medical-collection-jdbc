@@ -1,0 +1,11 @@
+package com.testyantra.dao;
+
+import com.testyantra.infobean.UserInfoBean;
+
+public interface MedicalManagementDAO {
+	
+	public boolean deleteUser(UserInfoBean userInfoBean);
+	
+	public boolean addEmployee(EmployeeInfoBean EmployeeInfoBean)
+
+}

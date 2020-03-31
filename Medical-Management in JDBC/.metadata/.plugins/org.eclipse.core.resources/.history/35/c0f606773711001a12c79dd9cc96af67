@@ -1,0 +1,11 @@
+package com.testyantra.infobean;
+
+public class UserInfoBean {
+
+	 int user_Id;
+	 String user_Name;
+	 String email;
+	 String password;
+	 long mobile;
+	 
+}

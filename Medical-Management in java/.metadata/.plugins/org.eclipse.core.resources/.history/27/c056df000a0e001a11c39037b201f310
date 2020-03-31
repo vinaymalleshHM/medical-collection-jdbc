@@ -1,0 +1,11 @@
+package com.testyantra.dao;
+
+public class MedicalMangementInfoBeanImpl implements MedicalMangementInfoBean {
+
+	
+	@Override
+	public boolean createUser() {
+		return false;
+	}
+
+}

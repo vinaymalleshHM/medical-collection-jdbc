@@ -1,0 +1,9 @@
+package com.testyantra.datastore;
+
+import java.util.HashMap;
+
+public class MedicineDB {
+	
+	static HashMap<Integer, Object> mdcDB = new HashMap<Integer, Object>();
+
+}

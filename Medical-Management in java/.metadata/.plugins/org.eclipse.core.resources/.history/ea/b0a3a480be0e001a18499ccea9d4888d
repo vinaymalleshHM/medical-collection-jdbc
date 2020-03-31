@@ -1,0 +1,13 @@
+package com.testyantra.dao;
+
+import com.testyantra.infobean.MedicalCreation;
+import com.testyantra.infobean.UserCreation;
+
+public interface MedicalMangementDAO {
+
+	boolean createUser(UserCreation userCreation);
+	boolean deleteUser(int id);
+	boolean createMedicalStore(MedicalCreation medicalCreation);
+	boolean deleteMedicalStore(int id);
+	boolean  modifyMedicine(int id);
+}

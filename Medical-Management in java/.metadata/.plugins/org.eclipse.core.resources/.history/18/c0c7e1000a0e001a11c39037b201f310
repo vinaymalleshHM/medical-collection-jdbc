@@ -1,0 +1,15 @@
+package com.testyantra.dao;
+
+import java.util.ArrayList;
+
+public class MedicalMangementInfoBeanImpl implements MedicalMangementInfoBean {
+
+	Medic
+	@Override	public boolean createUser() {
+		
+		ArrayList al = new ArrayList();
+		al.
+		return false;
+	}
+
+}

@@ -1,0 +1,406 @@
+package com.testyantra.main;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.testyantra.dao.MedicalManagementDAO;
+import com.testyantra.dao.MedicalManagementDAOImpl;
+import com.testyantra.infobean.CartInfoBean;
+import com.testyantra.infobean.MedicalInfoBean;
+import com.testyantra.infobean.MedicalInfoBean1;
+import com.testyantra.infobean.UserInfoBean;
+
+public class MediApp {
+	public static void main(String[] args) {
+
+		MedicalManagementDAO dao = new MedicalManagementDAOImpl();
+		UserInfoBean userInfoBean = null;
+		MedicalInfoBean medicalInfoBean = null;
+		MedicalInfoBean1 medicalInfoBean1 = null;
+		CartInfoBean cartInfoBean = null;
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+
+
+			System.out.println("Enter 1 to Continue\n 2 to exit\n");
+			int l = sc.nextInt();
+			if (l==1) {
+
+
+				System.out.println("Enter Input 1 to Admin\n 2 to user\n 3 to Visitor\n");
+				int input = sc.nextInt();
+				switch (input) {
+				case 1:
+					System.out.println("Enter Input 1 to Deleteuser\n 2 to CreateInventory\n 3 to DeleteInventor\n 4 to ModifyInventor\n");
+					int ch = sc.nextInt();
+
+					if (ch==1) {
+						System.out.println("Enter User Id");
+						int user_Id = sc.nextInt();
+
+						userInfoBean.setUser_Id(user_Id);
+
+						if(dao.deleteUser(userInfoBean)) {
+							System.out.println("User is deleted Succusfully ");
+						}
+						else {
+							System.out.println("User is Not deleted " +user_Id);
+						}
+
+					}
+
+					else if (ch==2) {
+						System.out.println("Enter sh_Id ");
+						int sh_Id = sc.nextInt();
+
+						System.out.println("Enter sh_Name ");
+						String sh_Name = sc.next();
+
+						/*
+						 * System.out.println("Enter the no of type medicine"); int no = sc.nextInt();
+						 */
+
+						//for (int i = 0; i < no; i++) {
+
+						System.out.println("Enter tab_Name");
+						String tab_Name = sc.next();
+
+						System.out.println(" Enter tab_Qty");
+						int tab_Qty = sc.nextInt();
+
+						System.out.println("Enter tab_Price");
+						double tab_Price = sc.nextDouble();
+
+						//}
+
+						medicalInfoBean = new MedicalInfoBean();
+						medicalInfoBean.setSh_Id(sh_Id);
+						medicalInfoBean.setSh_Name(sh_Name);
+
+						medicalInfoBean1 = new MedicalInfoBean1();
+						medicalInfoBean1.setT_Id(sh_Id);
+						medicalInfoBean1.setSh_Name(sh_Name);
+						medicalInfoBean1.setTab_Name(tab_Name);
+						medicalInfoBean1.setTab_Price(tab_Price);
+						medicalInfoBean1.setTab_Qty(tab_Qty);
+
+						if (dao.addInventory1(medicalInfoBean)) {
+							if (dao.addInventory2(medicalInfoBean1)) {
+								System.out.println("Inventory Created");
+							}
+							else {
+								System.out.println("Inventory Can't Created");
+							}
+
+						}
+						else {
+							System.out.println("Inventory Can't Created");
+						}
+
+
+						/*
+						 * System.out.println(" Enter No of type medicine "); int = sc.nextInt();
+						 * 
+						 * for (int i = 0; i < args.length; i++) {
+						 * 
+						 * System.out.println("Enter sh_Name "); int sh_Name = sc.nextInt(); }
+						 */
+
+					}
+
+					else if (ch==3) {
+						System.out.println("Enter sh_Id ");
+						int sh_Id = sc.nextInt();
+
+						medicalInfoBean = new MedicalInfoBean();
+						medicalInfoBean.setSh_Id(sh_Id);
+
+						medicalInfoBean1 = new MedicalInfoBean1();
+						medicalInfoBean1.setT_Id(sh_Id);
+
+						if (dao.deleteInventory1(medicalInfoBean)) {
+
+							if (dao.deleteInventory2(medicalInfoBean1)) {
+
+								System.out.println(" Inventory is Deleted ");
+							}
+							else {
+								System.out.println(" Inventory is not Deleted ");
+							}
+
+						}
+						else {
+							System.out.println("Invalid sh_Id "+sh_Id);
+						}
+
+					}
+
+					else if (ch==4) {
+						System.out.println("1 to modify sh_Name\n 2 to modify tab_Name\n 3 to modify tab_Qty\n 4 to modify tab_Price\n");
+						int n = sc.nextInt();
+
+						switch (n) {
+						case 1:
+							System.out.println("Enter Modify to sh_Id");
+							int sh_Id = sc.nextInt();
+
+							System.out.println("Enter Modify to sh_Name");
+							String sh_Name = sc.next();
+
+							medicalInfoBean = new MedicalInfoBean();
+							medicalInfoBean.setSh_Id(sh_Id);
+							medicalInfoBean.setSh_Name(sh_Name);
+
+							if (dao.updateInventory1(medicalInfoBean)) {
+								System.out.println("Succussfuly Updated");
+							}
+							else {
+								System.out.println("Not Updated");
+							}
+
+
+							break;
+
+						case 2:System.out.println("Enter Modify to sh_Id");
+						int t_Id = sc.nextInt();
+
+						System.out.println("Enter Modify to tab_Name");
+						String tab_Name = sc.next();
+
+						medicalInfoBean1 = new MedicalInfoBean1();
+						medicalInfoBean1.setT_Id(t_Id);
+						medicalInfoBean1.setTab_Name(tab_Name);
+
+						if (dao.updateInventory2(medicalInfoBean1)) {
+							System.out.println("Succussfuly Updated");
+						}
+						else {
+							System.out.println("Not Updated");
+						}
+
+						break;
+
+						case 3:System.out.println("Enter Modify to sh_Id");
+						int h_Id = sc.nextInt();
+
+						System.out.println("Enter Modify to tab_Qty");
+						int tab_Qty = sc.nextInt();
+
+						medicalInfoBean1 = new MedicalInfoBean1();
+						medicalInfoBean1.setT_Id(h_Id);
+						medicalInfoBean1.setTab_Qty(tab_Qty);
+
+						if (dao.updateInventory3(medicalInfoBean1)) {
+							System.out.println("Succussfuly Updated");
+						}
+						else {
+							System.out.println("Not Updated");
+						}
+
+
+						break;
+
+						case 4:System.out.println("Enter Modify to sh_Id");
+						int m_Id = sc.nextInt();
+
+						System.out.println("Enter Modify to tab_Price");
+						int tab_Price = sc.nextInt();
+
+						medicalInfoBean1 = new MedicalInfoBean1();
+						medicalInfoBean1.setT_Id(m_Id);
+						medicalInfoBean1.setTab_Price(tab_Price);;
+
+						if (dao.updateInventory4(medicalInfoBean1)) {
+							System.out.println("Succussfuly Updated");
+						}
+						else {
+							System.out.println("Not Updated");
+						}
+
+						break;
+
+						default:System.out.println("Invalid Input");
+						break;
+						}
+
+					}
+
+					else {
+						System.out.println("Invalid Input");
+					}
+
+
+					break;
+
+				case 2:System.out.println("Enter 1 to SignUp\n 2 to Login");
+				int n1 = sc.nextInt();
+				if (n1==1) {
+
+					System.out.println("Enter your Name ");
+					String user_Name = sc.next();
+
+					System.out.println("Enter your email ");
+					String email = sc.next();
+
+					System.out.println("Enter  password: ");
+					String password = sc.next();
+
+					System.out.println("Enter your Phone: ");
+					Long mobile = sc.nextLong();
+
+					userInfoBean = new UserInfoBean();
+					userInfoBean.setUser_Name(user_Name);
+					userInfoBean.setEmail(email);
+					userInfoBean.setPassword(password);
+					userInfoBean.setMobile(mobile);
+
+					if (dao.createUser(userInfoBean)) {
+						System.out.println("User is Created ");
+					}
+					else {
+						System.out.println("User Unable to Created ");
+					}
+
+
+				}
+				else if (n1==2) {
+					System.out.println("Enter your email ");
+					String email = sc.next();
+
+					System.out.println("Enter  password: ");
+					String password = sc.next();
+
+					UserInfoBean userInfoBean1 = dao.authenticate(email, password);
+
+					if (userInfoBean1 != null) {
+						System.out.println("Welcome "+userInfoBean1.getUser_Name());
+						ArrayList al = dao.displayInventory();
+						for (int i = 0; i < al.size(); i++) {
+
+							System.out.println(al.get(i));
+
+						}
+						System.out.println("Enter 1 Add to cart");
+						int cs = sc.nextInt();
+						if (cs==1) {
+
+							System.out.println("Enter item to cart t_Id");
+							int t_Id = sc.nextInt();
+
+							System.out.println("Enter item to cart tab_Name");
+							String tab_Name = sc.next();
+
+							System.out.println("Enter item to cart tab_Qty");
+							int tab_Qty = sc.nextInt();
+
+							System.out.println("Enter item to cart tab_Price");
+							double tab_Price = sc.nextDouble();
+
+							medicalInfoBean1 = new MedicalInfoBean1();
+							medicalInfoBean1.setT_Id(t_Id);
+							medicalInfoBean1.setTab_Name(tab_Name);
+							medicalInfoBean1.setTab_Qty(tab_Qty);
+							medicalInfoBean1.setTab_Price(tab_Price);
+
+							if (dao.addCart(medicalInfoBean1)) {
+								System.out.println("Items are added in cart");
+								System.out.println("Enter 1 Add to cart\n 2 payment\n 3 to logout");
+								int cs1 = sc.nextInt();
+								if (cs1==1) {
+									System.out.println("Enter item to cart t_Id");
+									int t_Id1 = sc.nextInt();
+
+									System.out.println("Enter item to cart tab_Name");
+									String tab_Name1 = sc.next();
+
+									System.out.println("Enter item to cart tab_Qty");
+									int tab_Qty1 = sc.nextInt();
+
+									System.out.println("Enter item to cart tab_Price");
+									double tab_Price1 = sc.nextDouble();
+
+									medicalInfoBean1 = new MedicalInfoBean1();
+									medicalInfoBean1.setTab_Name(tab_Name1);
+									medicalInfoBean1.setTab_Qty(tab_Qty1);
+									medicalInfoBean1.setTab_Price(tab_Price1);
+
+									if (dao.addCart(medicalInfoBean1)) {
+										System.out.println("Items are added in cart");
+										System.out.println("Enter 1 Add to cart\n 2 payment\n 3 to logout");
+									}
+									else if(cs1==2){
+
+										System.out.println("t_Id "+medicalInfoBean1.getT_Id());
+										System.out.println("tab_Name "+medicalInfoBean1.getTab_Name());
+										System.out.println("tab_Qty "+medicalInfoBean1.getTab_Qty());
+										System.out.println("tab_Qty "+medicalInfoBean1.getTab_Price());
+
+										System.out.println("1. to using UPI\n 2. to Debit Card\n 3.CreditCard");
+										int payment = sc.nextInt();
+										if (payment==1) {
+											
+											
+										}
+										else if(payment==2){
+											System.out.println("Enter Your Debit Card Number");
+											int p1 = sc.nextInt();
+											System.out.println("Enter Expire date");
+											String p2 = sc.next();
+											System.out.println("Enter cvv Number");
+											String p3 = sc.next();
+											System.out.println("please wait... ");
+											System.out.println("payment");
+											
+										}
+										else if(payment==3){
+											System.out.println("Enter Your Credit Card Number");
+											int p1 = sc.nextInt();
+											System.out.println("Enter Expire date");
+											String p2 = sc.next();
+											System.out.println("Enter cvv Number");
+											String p3 = sc.next();
+											System.out.println("");
+											System.out.println("please wait... ");
+											System.out.println("payment");
+										}
+										else {
+											System.out.println("Invalid Input");
+										}
+
+									}
+								}
+								else {
+									break;
+								}
+							}
+
+						}
+					}
+					else {
+						System.out.println("Invalid Email or Password");
+					}
+
+				}
+				else {
+					System.out.println("Inavalid Input");
+				}
+
+
+				break;
+
+				case 3:
+
+					break;
+
+				default:System.out.println("Invalid Input");
+				break;
+				}
+
+			}
+			else {
+				break;
+			}
+		}
+	}
+}

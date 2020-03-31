@@ -1,0 +1,10 @@
+package com.testyantra.user;
+
+import java.util.HashMap;
+
+public class TestA {
+	
+	HashMap<Integer,String> hm = new HashMap<Integer, String>();
+	hm.
+
+}

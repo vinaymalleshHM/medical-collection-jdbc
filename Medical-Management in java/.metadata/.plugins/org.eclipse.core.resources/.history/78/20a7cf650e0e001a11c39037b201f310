@@ -1,0 +1,9 @@
+package com.testyantra.datastore;
+
+import java.util.HashMap;
+
+public class UserDB {
+	
+	HashMap<String, String>  hs = new HashMap<String, String>();
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.testyantra.infobean.MedicalInfiBean.java&apos; to &apos;MedicalInfoBean.java&apos;&#x0D;&#x0A;- Original project: &apos;MedicalManagement&apos;&#x0D;&#x0A;- Original element: &apos;com.testyantra.infobean.MedicalInfiBean.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.testyantra.infobean.MedicalInfoBean.java&apos;" description="Rename compilation unit &apos;MedicalInfiBean.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.testyantra.infobean{MedicalInfiBean.java" name="MedicalInfoBean.java" references="false" stamp="1574875027971" version="1.0"/>
+</session>

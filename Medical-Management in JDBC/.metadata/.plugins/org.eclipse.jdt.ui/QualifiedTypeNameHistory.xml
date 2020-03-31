@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="com.testyantra.dao.MedicalManagementDAOImpl"/>
+<fullyQualifiedTypeName name="com.testyantra.dao.MedicalManagementDAO"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.CartInfoBean"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.MedicalInfoBean"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.UserInfoBean"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.MedicalInfoBean1"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package com.testyantra.infobean;
+
+public class MedicalInfoBean1 {
+
+	int t_id;
+	String tab_name;
+	int tab_qty;
+	double  tab_price;
+}

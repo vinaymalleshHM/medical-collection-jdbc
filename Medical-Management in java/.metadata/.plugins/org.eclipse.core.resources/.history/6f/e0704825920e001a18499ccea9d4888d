@@ -1,0 +1,7 @@
+package com.testyantra.dao;
+
+public interface MedicalMangementDAO {
+
+	boolean createUser();
+	boolean deleteUser(int id);
+}

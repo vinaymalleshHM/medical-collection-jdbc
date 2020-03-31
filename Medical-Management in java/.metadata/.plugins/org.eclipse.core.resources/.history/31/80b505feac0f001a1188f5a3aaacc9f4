@@ -1,0 +1,300 @@
+package com.testyantra.dao;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+
+import com.testyantra.datastore.CartDB;
+import com.testyantra.datastore.MedicineDB;
+import com.testyantra.datastore.UserDB;
+import com.testyantra.infobean.MedicalCreation;
+import com.testyantra.infobean.UserCreation;
+
+public class MedicalMangementDAOImpl implements MedicalMangementDAO {
+	UserCreation userCreation = null;
+	public static int count =1;
+	public static int temp;
+
+	public static int count1 =10;
+	public static int temp1;
+
+
+	@Override
+	public boolean createUser(UserCreation userCreation) {
+
+
+		ArrayList al = new ArrayList();
+		boolean isCreate = false;
+
+		if (userCreation != null) {
+			al.add(userCreation.getuName());
+			al.add(userCreation.getuAge());
+			al.add(userCreation.getuEmail());
+			al.add(userCreation.getuPassword());
+			al.add(userCreation.getuMobileNo());
+			System.out.println(al);
+			UserDB.usrDB.put(count,al);
+			System.out.println("User is Createed and Id "+count);
+			temp=count;
+			count++;
+			isCreate = true;
+		}
+		else {
+			System.out.println("User is not Created");
+		}
+
+
+		return isCreate;
+	}
+
+
+
+	@Override
+	public boolean deleteUser(int id) {
+
+		boolean isDel =false;
+		if (UserDB.usrDB != null) {
+			Object key = UserDB.usrDB.remove(id);
+			if (key != null) {
+				System.out.println("User is Deleted"+key);
+				isDel  = true;
+			}
+			else {
+				System.out.println("Entered User is Not Found"+id);
+			}
+
+		}
+
+		return isDel;
+	}
+
+
+
+	@Override
+	public boolean createMedicalStore(MedicalCreation medicalCreation) {
+
+		ArrayList al1 = new ArrayList();
+		boolean isCreate = false;
+
+		if (medicalCreation != null) {
+			al1.add(medicalCreation.getsName());
+			al1.add(medicalCreation.getsTabletName());
+			al1.add(medicalCreation.getsTablePrice());
+			al1.add(medicalCreation.getsQuantity());
+			System.out.println(al1);
+			MedicineDB.mdcDB.put(count1,al1);
+			System.out.println("Medical Shop is Createed and Id "+count1);
+			temp1=count1;
+			count1++;
+			isCreate = true;
+		}
+		else {
+			System.out.println("Medical Shop is not Created");
+		}
+
+
+		return isCreate;
+	}
+
+
+
+	@Override
+	public boolean deleteMedicalStore(int id) {
+		boolean isDel =false;
+		if (MedicineDB.mdcDB != null) {
+			Object key = MedicineDB.mdcDB.remove(id);
+			if (key != null) {
+				System.out.println("User is Deleted"+key);
+				isDel  = true;
+			}
+			else {
+				System.out.println("Entered Id is Not found"+id);
+			}
+
+		}
+
+		return isDel;
+	}
+
+
+
+	@Override
+	public boolean modifyMedicine(int ch,int id) {
+
+		boolean isModify =false;
+		Scanner sc1 = new Scanner(System.in);
+		MedicalCreation	medicalCreation =null;
+		switch (ch) {
+		case 1:
+			if (MedicineDB.mdcDB.containsKey(id)) {
+				System.out.println("Enter Shop Name to Modify");
+				String sName = sc1.next();
+				medicalCreation = new MedicalCreation();
+				medicalCreation.setsName(sName);
+				Set<Integer> ss = MedicineDB.mdcDB.keySet();
+				Iterator<Integer> it =ss.iterator();
+				while (it.hasNext()) {
+					int key1 = it.next(); 
+					if(key1==id) {
+						ArrayList al = MedicineDB.mdcDB.get(key1); 
+						for (int i = 0; i < al.size();i++) { 
+							if (i==0) { 
+								al.set(i, medicalCreation.getsName());
+								isModify = true;
+							}
+
+						} 
+						System.out.println(al); }
+
+				} 
+			}
+
+
+
+
+			break;
+
+		case 2:
+			if (MedicineDB.mdcDB.containsKey(id)) {
+				System.out.println("Enter Shop Name to Modify");
+				String sTabletName = sc1.next();
+				medicalCreation = new MedicalCreation();
+				medicalCreation.setsTabletName(sTabletName);;
+				Set<Integer> ss = MedicineDB.mdcDB.keySet();
+				Iterator<Integer> it =ss.iterator();
+				while (it.hasNext()) {
+					int key1 = it.next(); 
+					if(key1==id) {
+						ArrayList al = MedicineDB.mdcDB.get(key1); 
+						for (int i = 0; i < al.size();i++) { 
+							if (i==1) { 
+								al.set(i, medicalCreation.getsTabletName());
+								isModify = true;
+							}
+
+						} 
+						System.out.println(al); }
+
+				} 
+			}
+
+			break;
+
+		case 3:
+			if (MedicineDB.mdcDB.containsKey(id)) {
+				System.out.println("Enter Tablet Price to Modify"); 
+				double sTablePrice = sc1.nextDouble();
+				medicalCreation = new MedicalCreation();
+				medicalCreation.setsTablePrice(sTablePrice);
+				Set<Integer> ss = MedicineDB.mdcDB.keySet();
+				Iterator<Integer> it =ss.iterator();
+				while (it.hasNext()) {
+					int key1 = it.next(); 
+					if(key1==id) {
+						ArrayList al = MedicineDB.mdcDB.get(key1); 
+						for (int i = 0; i < al.size();i++) { 
+							if (i==2) { 
+								al.set(i, medicalCreation.getsTablePrice());
+								isModify = true;
+							}
+
+						} 
+						System.out.println(al); }
+
+				} 
+			}
+
+			break;
+		case 4:	
+			if (MedicineDB.mdcDB.containsKey(id)) {
+				System.out.println("Enter Tablet Quantity to Modify"); 
+				int sQuantity = sc1.nextInt();
+				medicalCreation = new MedicalCreation();
+				medicalCreation.setsQuantity(sQuantity);
+				Set<Integer> ss = MedicineDB.mdcDB.keySet();
+				Iterator<Integer> it =ss.iterator();
+				while (it.hasNext()) {
+					int key1 = it.next(); 
+					if(key1==id) {
+						ArrayList al = MedicineDB.mdcDB.get(key1); 
+						for (int i = 0; i < al.size();i++) { 
+							if (i==3) { 
+								al.set(i, medicalCreation.getsQuantity());
+								isModify = true;
+							}
+
+						} 
+						System.out.println(al); }
+
+				} 
+			}
+
+
+
+			break;
+
+		default:System.out.println("Invalid Input "+ch);
+		break;
+
+
+
+
+		}
+		return isModify;
+
+	}
+
+
+	@Override
+	public boolean userValidation(int id, String uPassword) {
+		boolean isvalid = false;
+		if (UserDB.usrDB.containsKey(id)) { 
+
+			Set<Integer> ss = UserDB.usrDB.keySet();
+			Iterator<Integer> it =ss.iterator();
+			while (it.hasNext()) {
+				int key1 = it.next(); 
+				if(key1==id) {
+					ArrayList al = UserDB.usrDB.get(key1); 
+					for (int i = 0; i < al.size();i++) { 
+						if (i==3) { 
+							if(al.get(i).equals(uPassword)) {
+
+								isvalid = true;
+							}
+
+
+						}
+
+					} 
+				}
+
+			} 
+		}
+		return isvalid;
+
+	}
+
+
+
+
+
+	@Override
+	public boolean addtoCart(int id,MedicalCreation medicalCreation) {
+		ArrayList al = new ArrayList();
+		boolean isCreate = false;
+
+		if (userCreation != null) {
+			al.add(medicalCreation.getsName());
+			al.add(medicalCreation.getsTabletName());
+			al.add(medicalCreation.getsQuantity());
+
+			System.out.println(al);
+			CartDB.ctDB.put(id,al);
+			isCreate = true;
+
+		}
+		return isCreate;
+	}
+}

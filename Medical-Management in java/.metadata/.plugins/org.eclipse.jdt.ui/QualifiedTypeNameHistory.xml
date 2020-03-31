@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.testyantra.dao.MedicalMangementInfoBean"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="javax.print.attribute.HashDocAttributeSet"/>
+<fullyQualifiedTypeName name="com.testyantra.dao.MedicalMangementDAO"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.TableUI"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.UserCreation"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="com.testyantra.datastore.UserDB"/>
+<fullyQualifiedTypeName name="com.testyantra.datastore.CartDB"/>
+<fullyQualifiedTypeName name="com.testyantra.infobean.MedicalCreation"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.testyantra.datastore.MedicineDB"/>
+<fullyQualifiedTypeName name="com.testyantra.dao.MedicalMangementDAOImpl"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>
